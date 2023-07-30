@@ -138,7 +138,7 @@
     width: 50px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 40px;
+    margin-bottom: 39px;
 }
 
 .about-description {
@@ -549,11 +549,13 @@ cursor: pointer;
 }
 
 .library-card {
+    margin-top: 0px;
     max-width: 1440px;
     margin-bottom: 41px;
 }
 
 .library-card-container {
+    margin-top: 0px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
