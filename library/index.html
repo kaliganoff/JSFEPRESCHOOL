@@ -28,6 +28,8 @@
                 </div>
             <div class="img-container">
             <img class="icon" src="assets/svg/icon_profile.svg" alt="icon_profile">
+            <img class="hidden-desktop burger" src="assets/svg/burger.svg" alt="burger menu">
+            <img class="burger-open" src="assets/svg/burger_open.svg" alt="burger open">
             </div>
             </div>
         </header>
@@ -41,14 +43,18 @@
                     <hr class="underline-section">
                     <p class="about-description">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside </p>
                     <div class="carousel">
+                        <img class="carret hidden-desktop" src="assets/svg/Carret_Left.svg"" alt="Carret_Left" class="carret-left">
                         <img class="carousel-img" src="assets/png/image%201.png" alt="image 1">
-                        <img class="carousel-img" src="assets/png/image%202.png" alt="image 2">
-                        <img class="carousel-img" src="assets/png/image%203.png" alt="image 3">
+                        <img class="carousel-img hidden-tablet" src="assets/png/image%202.png" alt="image 2">
+                        <img class="carousel-img hidden-tablet" src="assets/png/image%203.png" alt="image 3">
+                        <img class="carret hidden-desktop" src="assets/svg/Carret_Right.svg" alt="Carret_Right" class="carret-right">
                     </div>
                     <div class="pagi">
                         <div class="pagination-click"><div class="pagination checked"></div></div>
                         <div class="pagination-click"><div class="pagination"></div></div>
                         <div class="pagination-click"><div class="pagination"></div></div>
+                        <div class="pagination-click hidden-desktop"><div class="pagination"></div></div>
+                        <div class="pagination-click hidden-desktop"><div class="pagination"></div></div>
                     </div>
                 </section>
                 <section id="favorites" class="section favorites">
@@ -210,42 +216,48 @@
                     <h2 class="header2">Our Contacts</h2>
                     <hr class="underline-section">
                     <div class="contacts-container">
-                        <h3 class="contacts-header">For all Library inquiries:</h3>
-                        <div class="contacts-info">
-                            <div class="contacts-item">Please call <a class="tel" href="tel:(617)730-2370">(617) 730-2370</a></div>
-                            <div class="contacts-item">For TTY service, please call <a href="tel:(617)730-2370" class="tel">(617) 730-2370</a></div>
-                            <div class="contacts-item last">Putterham Library: <a href="tel:(617)730-2385" class="tel">(617) 730-2385</a></div>
+                        <div class="contacts-text">
+                            <h3 class="contacts-header">For all Library inquiries:</h3>
+                            <div class="contacts-info">
+                                <div class="contacts-item">Please call <a class="tel" href="tel:(617)730-2370">(617) 730-2370</a></div>
+                                <div class="contacts-item">For TTY service, please call <a href="tel:(617)730-2370" class="tel">(617) 730-2370</a></div>
+                                <div class="contacts-item last">Putterham Library: <a href="tel:(617)730-2385" class="tel">(617) 730-2385</a></div>
+                            </div>
+                            <h3 class="contacts-header staff">Senior Staff</h3>
+                            <div class="contacts-info">Library Director: <b><a href="mailto:AmandaHirst@gmail.com" class="tel">Amanda Hirst</a></b></div>
                         </div>
-                        <h3 class="contacts-header staff">Senior Staff</h3>
-                        <div class="contacts-info">Library Director: <b><a href="mailto:AmandaHirst@gmail.com" class="tel">Amanda Hirst</a></b></div>
-                        <img src="assets/png/map.png" alt="map">
+                        <img class="contacts-img" src="assets/png/map.png" alt="map">
                     </div>
                 </section>
                 <section id="library-card" class="section library-card">
                 <h2 class="header2">Digital Library Cards</h2>
                 <hr class="underline-section">
                 <div class="library-card-container">
-                    <h3 class="library-card-header">Find your Library card</h3>
-                    <form class="library-card-form">
-                        <div class="card-info">
-                            <p class="card-title">Brooklyn Public Library</p>
-                            <input class="card-input" type="text" placeholder="Reader's name"><br>
-                            <input class="card-input" type="number" placeholder="Card number">
+                    <div class="library-card-form-container">
+                        <h3 class="library-card-header">Find your Library card</h3>
+                        <form class="library-card-form">
+                            <div class="card-info">
+                                <p class="card-title">Brooklyn Public Library</p>
+                                <input class="card-input" type="text" placeholder="Reader's name"><br>
+                                <input class="card-input" type="number" placeholder="Card number">
+                            </div>
+                            <button class="button check-card">Check the card</button>
+                        </form>
+                    </div>
+                    <div class="get-card-container">
+                        <h3 class="get-card">Get a reader card</h3>
+                        <p class="get-card-info">You will be able to see a reader card after logging into account or you can register a new account</p>
+                        <div>
+                        <button class="button signup-login">Sign Up</button>
+                        <button class="button signup-login">Log in</button>
                         </div>
-                        <button class="button check-card">Check the card</button>
-                    </form>
-                    <h3 class="get-card">Get a reader card</h3>
-                    <p class="get-card-info">You will be able to see a reader card after logging into account or you can register a new account</p>
-                    <div>
-                    <button class="button signup-login">Sign Up</button>
-                    <button class="button signup-login">Log in</button>
                     </div>
                 </div>
                 </section>
             </div>
         </main>
         <footer class="footer">
-            <div class="footer-container">
+            <div class="main-container">
                 <div class="upper-footer">
                     <div>
                         <p class="address"><a class="footer-link" href="https://goo.gl/maps/RPTdou6uxXyeRNkD7">286 Cadman Plaza, New York,<br>
