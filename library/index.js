@@ -1,1 +1,17 @@
-console.log('1. 10/10\n2. 16/16\n3. 54/54\n4. 20/20\nTotal: 100/100');
+(function() {
+const burger = document.querySelector('.burger');
+const nav = document.querySelector('.nav-container');
+const burgerOpen = document.querySelector('.burger-open');
+burger.addEventListener('click', () => {
+    nav.classList.add('nav-container-active');
+    burger.classList.add('hidden-tablet');
+    burger.classList.remove('hidden-desktop');
+    burgerOpen.classList.add('burger-open-active');
+});
+burgerOpen.addEventListener('click', () =>{
+    nav.classList.remove('nav-container-active');
+    burger.classList.remove('hidden-tablet');
+    burger.classList.add('hidden-desktop');
+    burgerOpen.classList.remove('burger-open-active');
+}) 
+}())
