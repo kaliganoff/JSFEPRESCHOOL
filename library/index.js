@@ -15,3 +15,5 @@ burgerOpen.addEventListener('click', () =>{
     burgerOpen.classList.remove('burger-open-active');
 }) 
 }())
+
+console.log('1. 26/26;\n2. 12/12;\n3. 12/12;\n\nTotal: 50.');
