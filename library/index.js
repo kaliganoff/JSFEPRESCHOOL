@@ -512,9 +512,17 @@ copy.addEventListener('click', () => {
 
 buyCardForm.addEventListener('submit', (event) => {
     event.preventDefault();
+    if (buyCardForm.bankcardnumber.value.length < 16) {
+        alert('The bank card number must have 16 digits')
+    } else if (expiration[0].value.length < 2 || expiration[1].value.length < 2) {
+        alert('The expiration code must have 4 digits')
+    } else if (buyCardForm.cvc.value < 3) {
+        alert('The CVC must have 3 digits')
+    } else {
     hasCard = true;
     buyCard.classList.add('hidden');
     overlay.classList.add('hidden');
+    }
 })
 
 buyCardForm.bankcardnumber.addEventListener('input', () => {
