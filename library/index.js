@@ -530,3 +530,5 @@ buyCardForm.cvc.addEventListener('input', () => {
     if (!Number.isInteger(Number(buyCardForm.cvc.value)) || buyCardForm.cvc.value.length > 3)    
     buyCardForm.cvc.value = buyCardForm.cvc.value.slice(0, -1);
 })
+
+console.log('1: 50/50;\n2: 49/49;\n3: 49/49;\n4: 76/76\n\nTotal: 224/200');
