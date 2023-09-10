@@ -132,6 +132,7 @@ function logOut() {
     getCardInfo.textContent = 'You will be able to see a reader card after logging into account or you can register a new account';
 };
 
+
 (function() {
 burger.addEventListener('click', () => {
     nav.classList.add('nav-container-active');
