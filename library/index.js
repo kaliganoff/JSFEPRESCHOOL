@@ -516,7 +516,7 @@ buyCardForm.addEventListener('submit', (event) => {
         alert('The bank card number must have 16 digits')
     } else if (expiration[0].value.length < 2 || expiration[1].value.length < 2) {
         alert('The expiration code must have 4 digits')
-    } else if (buyCardForm.cvc.value < 3) {
+    } else if (buyCardForm.cvc.value.length < 3) {
         alert('The CVC must have 3 digits')
     } else {
     hasCard = true;
