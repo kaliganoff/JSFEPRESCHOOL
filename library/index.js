@@ -12,6 +12,8 @@ const pagi5 = document.querySelector('#pagi5');
 const carousel = document.querySelector('.carousel');
 const carretLeft = document.querySelector('#carret-left');
 const carretRight = document.querySelector('#carret-right');
+const leftCarretButton = document.querySelector('.left-carret-button');
+const rightCarretButton = document.querySelector('.right-carret-button');
 const favorites = document.querySelector('.favorites');
 const seasons = document.querySelectorAll('.season');
 const authorization = document.querySelectorAll('.authorization');
@@ -44,6 +46,8 @@ const smallStats = document.querySelector('#small-stats');
 const cardNumber = document.querySelector('#card-number');
 const buyCard = document.querySelector('.buy-card');
 const buyCardForm = document.querySelector('.buy-card-form');
+const buyCardFormInputs = document.querySelectorAll('.in-buy-card');
+const buyCardFormButton = document.querySelector('.card-button');
 const copy = document.querySelector('.copy');
 const libraryCardHeader = document.querySelector('.library-card-header');
 const getCardHeader = document.querySelector('.get-card');
@@ -55,7 +59,7 @@ let previousSeason = seasons[0];
 let fadeInElement = document.querySelector('.favorites-wrapper.winter');
 let fadeOutElement;
 let carouselVariable = 0;
-let isLoggedIn = false;
+let isLoggedIn = true;
 let hasCard = false;
 let visits = 0;
 let books = 0;
@@ -178,7 +182,10 @@ pagi2.addEventListener('click', () => {
     carousel.classList.remove('right');
     carouselVariable = 1;
     pagi1.firstElementChild.classList.remove('checked');
+    pagi1.disabled = false;
     pagi2.firstElementChild.classList.add('checked');
+    pagi2.disabled = true;
+    leftCarretButton.disabled = false;
     }
     else if (carouselVariable === 2) {
     carousel.classList.add('right-right');
@@ -186,7 +193,9 @@ pagi2.addEventListener('click', () => {
     carousel.classList.remove('right3');
     carouselVariable = 1;
     pagi3.firstElementChild.classList.remove('checked');
+    pagi3.disabled = false;
     pagi2.firstElementChild.classList.add('checked');
+    pagi2.disabled = true;
     }
 });
 
@@ -197,7 +206,10 @@ pagi1.addEventListener('click', () => {
     carousel.classList.remove('right-right');
     carouselVariable = 0;
     pagi1.firstElementChild.classList.add('checked');
+    pagi1.disabled = true;
     pagi2.firstElementChild.classList.remove('checked');
+    pagi2.disabled = false;
+    leftCarretButton.disabled = true;
     }
 });
 
@@ -208,7 +220,9 @@ pagi3.addEventListener('click', () => {
     carousel.classList.remove('right-right');
     carouselVariable = 2;
     pagi3.firstElementChild.classList.add('checked');
+    pagi3.disabled = true;
     pagi2.firstElementChild.classList.remove('checked');
+    pagi2.disabled = false;
     }
     else if (carouselVariable === 3) {
         carousel.classList.add('right3');
@@ -216,7 +230,9 @@ pagi3.addEventListener('click', () => {
         carousel.classList.remove('right4');
         carouselVariable = 2;
         pagi4.firstElementChild.classList.remove('checked');
+        pagi4.disabled = false;
         pagi3.firstElementChild.classList.add('checked');
+        pagi3.disabled = true;
     }
 });
 
@@ -227,14 +243,19 @@ pagi4.addEventListener('click', () => {
     carousel.classList.remove('right3');
     carouselVariable = 3;
     pagi4.firstElementChild.classList.add('checked');
+    pagi4.disabled = true;
     pagi3.firstElementChild.classList.remove('checked');
+    pagi3.disabled = false;
     }
     else if (carouselVariable === 4) {
         carousel.classList.add('right4');
         carousel.classList.remove('left4');
         carouselVariable = 3;
         pagi5.firstElementChild.classList.remove('checked');
+        pagi5.disabled = false;
         pagi4.firstElementChild.classList.add('checked');
+        pagi4.disabled = true;
+        rightCarretButton.disabled = false;
     }
 });
 
@@ -242,20 +263,27 @@ pagi5.addEventListener('click', () => {
     if (carouselVariable === 3) {
     carousel.classList.add('left4');
     carousel.classList.remove('left3');
+    carousel.classList.remove('right4');
     carouselVariable = 4;
     pagi5.firstElementChild.classList.add('checked');
+    pagi5.disabled = true;
     pagi4.firstElementChild.classList.remove('checked');
+    pagi4.disabled = false;
+    rightCarretButton.disabled = true;
     }
 });
 
-carretRight.addEventListener('click', () => {
+rightCarretButton.addEventListener('click', () => {
     switch (String(carouselVariable)) {
         case '0':
             carousel.classList.add('left');
             carousel.classList.remove('right');
             carouselVariable = 1;
             pagi1.firstElementChild.classList.remove('checked');
+            pagi1.disabled = false;
             pagi2.firstElementChild.classList.add('checked');
+            pagi2.disabled = true;
+            leftCarretButton.disabled = false;
             break;
         case '1':
             carousel.classList.add('left-left');
@@ -263,7 +291,9 @@ carretRight.addEventListener('click', () => {
             carousel.classList.remove('right-right');
             carouselVariable = 2;
             pagi3.firstElementChild.classList.add('checked');
+            pagi3.disabled = true;
             pagi2.firstElementChild.classList.remove('checked');
+            pagi2.disabled = false;
             break;
         case '2':
             carousel.classList.add('left3');
@@ -271,19 +301,25 @@ carretRight.addEventListener('click', () => {
             carousel.classList.remove('right3');
             carouselVariable = 3;
             pagi4.firstElementChild.classList.add('checked');
+            pagi4.disabled = true;
             pagi3.firstElementChild.classList.remove('checked');
+            pagi3.disabled = false;
             break;
         case '3':
             carousel.classList.add('left4');
             carousel.classList.remove('left3');
+            carousel.classList.remove('right4');
             carouselVariable = 4;
             pagi5.firstElementChild.classList.add('checked');
+            pagi5.disabled = true;
             pagi4.firstElementChild.classList.remove('checked');
+            pagi4.disabled = false;
+            rightCarretButton.disabled = true;
             break;
     }
 });
 
-carretLeft.addEventListener('click', () => {
+leftCarretButton.addEventListener('click', () => {
     switch (String(carouselVariable)) {
         case '1':
             carousel.classList.add('right');
@@ -291,7 +327,10 @@ carretLeft.addEventListener('click', () => {
             carousel.classList.remove('right-right');
             carouselVariable = 0;
             pagi1.firstElementChild.classList.add('checked');
+            pagi1.disabled = true;
             pagi2.firstElementChild.classList.remove('checked');
+            pagi2.disabled = false;
+            leftCarretButton.disabled = true;
             break;
         case '2':
             carousel.classList.add('right-right');
@@ -299,7 +338,9 @@ carretLeft.addEventListener('click', () => {
             carousel.classList.remove('right3');
             carouselVariable = 1;
             pagi3.firstElementChild.classList.remove('checked');
+            pagi3.disabled = false;
             pagi2.firstElementChild.classList.add('checked');
+            pagi2.disabled = true;
             break;
         case '3':
             carousel.classList.add('right3');
@@ -307,14 +348,19 @@ carretLeft.addEventListener('click', () => {
             carousel.classList.remove('right4');
             carouselVariable = 2;
             pagi4.firstElementChild.classList.remove('checked');
+            pagi4.disabled = false;
             pagi3.firstElementChild.classList.add('checked');
+            pagi3.disabled = true;
             break;
         case '4':
             carousel.classList.add('right4');
             carousel.classList.remove('left4');
             carouselVariable = 3;
             pagi5.firstElementChild.classList.remove('checked');
+            pagi5.disabled = false;
             pagi4.firstElementChild.classList.add('checked');
+            pagi4.disabled = true;
+            rightCarretButton.disabled = false;
             break;
     }
 });
@@ -528,16 +574,33 @@ buyCardForm.addEventListener('submit', (event) => {
 buyCardForm.bankcardnumber.addEventListener('input', () => {
     if (!Number.isInteger(Number(buyCardForm.bankcardnumber.value)) || buyCardForm.bankcardnumber.value.length > 16)    
     buyCardForm.bankcardnumber.value = buyCardForm.bankcardnumber.value.slice(0, -1);
+
+    if (buyCardForm.bankcardnumber.value.includes(' '))
+    buyCardForm.bankcardnumber.value = buyCardForm.bankcardnumber.value.replace(/ /g, '');
 })
 
 expiration.forEach(input => input.addEventListener('input', () => {
     if (!Number.isInteger(Number(input.value)) || input.value.length > 2)
     input.value = input.value.slice(0, -1);
+
+    if (input.value.includes(''))
+    input.value = input.value.replace(/ /g, '');
 }))
 
 buyCardForm.cvc.addEventListener('input', () => {
     if (!Number.isInteger(Number(buyCardForm.cvc.value)) || buyCardForm.cvc.value.length > 3)    
     buyCardForm.cvc.value = buyCardForm.cvc.value.slice(0, -1);
+
+    if (buyCardForm.cvc.value.includes(' '))
+    buyCardForm.cvc.value = buyCardForm.cvc.value.replace(/ /g, '');
 })
+
+buyCardForm.addEventListener('input', () => {
+    if (buyCardFormInputs[0].value.length > 0 && buyCardFormInputs[1].value.length > 0 && buyCardFormInputs[2].value.length > 0 && buyCardFormInputs[3].value.length > 0 && buyCardFormInputs[4].value.length > 0 && buyCardFormInputs[5].value.length > 0 && buyCardFormInputs[6].value.length > 0) {
+        buyCardFormButton.disabled = false;
+        } else {
+            buyCardFormButton.disabled = true;
+        }
+}) 
 
 console.log('1: 50/50;\n2: 49/49;\n3: 49/49;\n4: 76/76\n\nTotal: 224/200');

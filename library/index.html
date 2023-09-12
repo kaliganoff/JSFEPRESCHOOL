@@ -128,7 +128,7 @@
                     <hr class="underline-section">
                     <p class="about-description">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside </p>
                     <div class="carousel-whole">
-                        <img id="carret-left" class="carret hidden-desktop" src="assets/svg/Carret_Left.svg"" alt="Carret_Left" class="carret-left">
+                        <button class="left-carret-button hidden-desktop"><img id="carret-left" class="carret hidden-desktop" src="assets/svg/Carret_Left.svg"" alt="Carret_Left" class="carret-left"></button>
                             <div class="carousel-wrapper">
                                 <div class="carousel">
                                     <img class="carousel-img" src="assets/png/image%201.png" alt="image 1">
@@ -138,14 +138,14 @@
                                     <img class="carousel-img" src="assets/png/image%205.png" alt="image 5">
                                 </div>
                             </div>
-                        <img id="carret-right" class="carret hidden-desktop" src="assets/svg/Carret_Right.svg" alt="Carret_Right" class="carret-right">
+                        <button class="right-carret-button hidden-desktop"><img id="carret-right" class="carret hidden-desktop" src="assets/svg/Carret_Right.svg" alt="Carret_Right" class="carret-right"></button>
                     </div>
                     <div class="pagi">
-                        <div id="pagi1" class="pagination-click"><div class="pagination checked"></div></div>
-                        <div id="pagi2" class="pagination-click"><div class="pagination"></div></div>
-                        <div id="pagi3" class="pagination-click"><div class="pagination"></div></div>
-                        <div id="pagi4" class="pagination-click hidden-desktop"><div class="pagination"></div></div>
-                        <div id="pagi5" class="pagination-click hidden-desktop"><div class="pagination"></div></div>
+                        <button id="pagi1" class="pagination-click"><div class="pagination checked"></div></button>
+                        <button id="pagi2" class="pagination-click"><div class="pagination"></div></button>
+                        <button id="pagi3" class="pagination-click"><div class="pagination"></div></button>
+                        <button id="pagi4" class="pagination-click hidden-desktop"><div class="pagination"></div></button>
+                        <button id="pagi5" class="pagination-click hidden-desktop"><div class="pagination"></div></button>
                     </div>
                 </section>
                 <section id="favorites" class="section favorites">
@@ -362,21 +362,21 @@
                     <div class="buy-card-white">
                         <form class="buy-card-form">
                             <label for="">Bank card number</label>
-                            <input name="bankcardnumber" required class="register-form-input" type="text">
+                            <input name="bankcardnumber" required class="register-form-input in-buy-card" type="text">
                             <label for="">Expiration code</label>
                             <div>
-                                <input required class="code-input expiration" type="text"><input required class="code-input expiration" type="text">
+                                <input required class="code-input expiration in-buy-card" type="text"><input required class="code-input expiration in-buy-card" type="text">
                             </div>
                             <label for="">CVC</label>
-                            <input name="cvc" required class="code-input" type="text">
+                            <input name="cvc" required class="code-input in-buy-card" type="text">
                             <label class="cardholder" for="">Cardholder name</label>
-                            <input required class="register-form-input" type="text">
+                            <input required class="register-form-input in-buy-card" type="text">
                             <label for="">Postal code</label>
-                            <input required class="register-form-input" type="text">
+                            <input required class="register-form-input in-buy-card" type="text">
                             <label for="">City / Town</label>
-                            <input required class="register-form-input" type="text">
+                            <input required class="register-form-input in-buy-card" type="text">
                             <div class="button-price">
-                                <button class="card-button">Buy</button><p class="card-price">$ 25.00</p>
+                                <button disabled class="card-button">Buy</button><p class="card-price">$ 25.00</p>
                             </div>
                         </form>
                         <div class="buy-card-description">

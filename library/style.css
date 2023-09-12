@@ -676,6 +676,8 @@ body {
 .pagination-click {
     height: 26px;
     width: 26px;
+    background-color: white;
+    border: none;
 }
 
 .pagination-click:hover {
@@ -1546,6 +1548,16 @@ margin-bottom: 9px;
 
 .carret:hover {
     cursor: pointer;
+}
+
+.left-carret-button {
+    border: none;
+    background-color: #FFF;
+}
+
+.right-carret-button {
+    border: none;
+    background-color: #FFF;
 }
 
 .carousel-img {
