@@ -59,7 +59,7 @@ let previousSeason = seasons[0];
 let fadeInElement = document.querySelector('.favorites-wrapper.winter');
 let fadeOutElement;
 let carouselVariable = 0;
-let isLoggedIn = true;
+let isLoggedIn = false;
 let hasCard = false;
 let visits = 0;
 let books = 0;
