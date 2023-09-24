@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Audio Player</title>
+</head>
+<body>
+    <div class="player">
+        <div class="cover"></div>
+        <div class="controls">
+            <audio class="audio1" src="assets/TeaForTwo.mp3" loop></audio>
+            <audio class="audio2" src="assets/Freestyler.m4a" loop></audio>
+            <div class="buttons-wrapper">
+                <img src="assets/play.png" class="play" alt="play button">
+                <img src="assets/backward.png" class="prev-track" alt="previous track">
+                <img src="assets/forward.png" class="next-track" alt="next track">
+                <div class="track-name">
+                    <div class="artist-name">Art Tatum</div>
+                    <div class="song-name">Tea For Two</div>
+                </div>
+                <img src="assets/text.png" alt="text button" class="text">
+                <div class="time">
+                    <div class="current">0:00</div>
+                    <div class="duration">3:15</div>
+                </div>
+            </div>
+            <input type="range" class="progress" value="0">
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

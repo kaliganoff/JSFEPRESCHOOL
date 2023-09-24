@@ -1,0 +1,57 @@
+.player {
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.cover {
+    background-image: url(assets/TeaForTwoCover.jpg);
+    background-size: 300px 290px;
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 300px;
+}
+
+.freestyler {
+    background-image: url(assets/FreestylerCover.jpg);
+}
+
+.buttons-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.play {
+    height: 50px;
+    width: 50px;
+}
+
+.prev-track {
+    height: 50px;
+    width: 50px;
+}
+
+.next-track {
+    height: 50px;
+    width: 50px;
+}
+
+.track-name {
+    display: flex;
+    flex-direction: column;
+}
+
+.text {
+    width: 30px;
+    height: 30px;
+    filter: invert(50%);
+}
+
+.progress {
+    width: 300px;
+}
