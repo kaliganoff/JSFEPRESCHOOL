@@ -7,6 +7,11 @@ const nextTrack = document.querySelector('.next-track');
 const cover = document.querySelector('.cover');
 const currentTime = document.querySelector('.current');
 const duration = document.querySelector('.duration');
+const artistName = document.querySelector('.artist-name');
+const songName = document.querySelector('.song-name');
+const textButton = document.querySelector('.text');
+const closeButton = document.querySelector('.close-btn');
+const textWindow = document.querySelector('.text-window');
 
 let audio = audio1;
 
@@ -30,35 +35,54 @@ progress.addEventListener('change', () => {
 setInterval(() => {
     progress.value = audio.currentTime * 100 / audio.duration;
     currentTime.textContent = formatTime(audio.currentTime);
+    if (audio.ended) {
+        switchTrack();
+    }
 }, 500);
 
-prevTrack.addEventListener('click', () => {
-    audio.pause();
-    if (audio === audio1) {
-        audio = audio2;
-    } else {
-        audio = audio1;
-    };
-    audio.currentTime = 0;
-    cover.classList.toggle('freestyler');
-    duration.textContent = formatTime(audio.duration);
-    if (playButton.classList.contains('ing'))
-    audio.play();
+prevTrack.addEventListener('click', switchTrack);
+
+nextTrack.addEventListener('click', switchTrack);
+
+textButton.addEventListener('click', () => {
+    if (audio === audio2)
+    textWindow.classList.remove('hidden')
+});
+
+document.addEventListener('click', (e) => {
+    const click = e.composedPath().includes(textWindow);
+    const buttonClick = e.composedPath().includes(textButton);
+    if (!click && !buttonClick) {
+    close();
+    }
 })
 
-nextTrack.addEventListener('click', () => {
+closeButton.addEventListener('click', close);
+
+function close() {
+    textWindow.classList.add('hidden');
+}
+
+function switchTrack() {
     audio.pause();
     if (audio === audio1) {
         audio = audio2;
+        artistName.textContent = "Bomfunk MC's";
+        songName.textContent = 'Freestyler';
+        document.body.style.backgroundImage = 'url(assets/FreestylerBackground.jpg';
     } else {
         audio = audio1;
+        artistName.textContent = 'Art Tatum';
+        songName.textContent = 'Tea For Two';
+        document.body.style.backgroundImage = 'url(assets/TeaForTwoBackground.jpg';
     };
     audio.currentTime = 0;
     cover.classList.toggle('freestyler');
+    textButton.classList.toggle('no-hover');
     duration.textContent = formatTime(audio.duration);
     if (playButton.classList.contains('ing'))
     audio.play();
-})
+}
 
 const formatTime = (time) => {
     let seconds = Math.trunc(time);

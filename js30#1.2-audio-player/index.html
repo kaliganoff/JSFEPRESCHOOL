@@ -6,29 +6,97 @@
     <link rel="stylesheet" href="style.css">
     <title>Audio Player</title>
 </head>
+<header></header>
 <body>
     <div class="player">
         <div class="cover"></div>
         <div class="controls">
-            <audio class="audio1" src="assets/TeaForTwo.mp3" loop></audio>
-            <audio class="audio2" src="assets/Freestyler.m4a" loop></audio>
+            <audio class="audio1" src="assets/TeaForTwo.mp3"></audio>
+            <audio class="audio2" src="assets/Freestyler.m4a"></audio>
             <div class="buttons-wrapper">
                 <img src="assets/play.png" class="play" alt="play button">
                 <img src="assets/backward.png" class="prev-track" alt="previous track">
                 <img src="assets/forward.png" class="next-track" alt="next track">
-                <div class="track-name">
-                    <div class="artist-name">Art Tatum</div>
-                    <div class="song-name">Tea For Two</div>
-                </div>
-                <img src="assets/text.png" alt="text button" class="text">
-                <div class="time">
-                    <div class="current">0:00</div>
-                    <div class="duration">3:15</div>
+                <div class="nametime">
+                    <div class="track-name">
+                        <div class="artist-name">Art Tatum</div>
+                        <div class="song-name">Tea For Two</div>
+                    </div>
+                    <img src="assets/text.png" alt="text button" class="text no-hover">
+                    <div class="time">
+                        <div class="current">0:00</div>
+                        <div class="duration">3:15</div>
+                    </div>
                 </div>
             </div>
             <input type="range" class="progress" value="0">
         </div>
     </div>
+    <div class="overlay"></div>
+    <div class="text-window hidden">
+        <img class="close-btn" src="assets/closebtn.svg" alt="close button">
+        <div class="lyrics"><pre>
+            Bomfunk MC's — Freestyler
+
+            Freestyler
+            Rock the microphone
+            Carry on with the freestyler
+            I got to throw on and go on
+            You know I gots to flow on
+            Selectors on the radio play us
+            'Cause we're friendly for ozone
+            But that's not all so hold on tight
+            As I rock the mic right
+            Oh, excuse me, pardon
+            As I synchronise with the analysed
+            Upcomin' vibes, the session
+            Let there be a lesson, question
+            You carry protection
+            Or will your heart go on
+            Like Celine Dion
+            Karma Chameleon
+            Yeah, straight from the top of my dome
+            As I rock, rock, rock, rock, rock the microphone
+            Yeah, straight from the top of my dome
+            As I rock, rock, rock, rock, rock the microphone
+            Yeah, straight from the top of my dome
+            Styles, steelos
+            We bring many kilos
+            So you could pick yours from the various
+            Ambitious, nutritious, delicious, delirious or vicious
+            Just tell us, we deliver anything
+            From acappellas to propellers
+            Suckers get jealous but they're soft like marshmallows
+            You know they can't handle us like Debbie does Dallas
+            Yeah, we come scandalous so who the fuck is Alice
+            She from Buckingham Palace?
+            Yeah, straight from the top of my dome
+            As I rock, rock, rock, rock, rock the microphone
+            Yeah, straight from the top of my dome
+            As I rock, rock, rock, rock, rock the microphone
+            Yeah, straight from the top of my dome
+            As I rock, rock, rock, rock, rock the microphone
+            Yeah, straight from the top of my dome
+            As I rock, rock, rock, rock, rock the microphone
+            Freestyler
+            Rock the microphone
+            Carry on with the freestyler
+            Yeah, straight from the top of my dome
+            As I rock, rock, rock, rock, rock the microphone
+            Yeah, straight from the top of my dome
+            As I rock, rock, rock, rock, rock the microphone
+            Yeah, straight from the top of my dome
+            As I rock, rock, rock, rock, rock the microphone
+            Yeah, straight from the top of my dome
+            As I rock, rock, rock, rock, rock the microphone</pre></div>
+    </div>
+    <footer>
+        <div class="footer">
+            <a href="https://github.com/kaliganoff"><img class="github-img" src="assets/github.png" alt="My Github"></a>
+            <span class="year">2023</span>
+            <a href="https://rs.school/js-stage0/"><img class="rss-img" src="assets/rsschool.svg" alt="RS School"></a>
+        </div>
+    </footer>
     <script src="index.js"></script>
 </body>
 </html>
