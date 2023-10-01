@@ -16,7 +16,7 @@ search.placeholder = query;
 async function getImages(query) {
     const res = await fetch(`https://api.unsplash.com/search/photos?query=${query}&per_page=30&client_id=F-CrqZ66gvClK9UaCKcUu4dEWfydP2o8-5M2Uzt0rds`);
     const data = await res.json();
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < data.results.length; i++) {
       const div = document.createElement('div');
       div.classList.add('gallery-img-container')
       container.append(div);
