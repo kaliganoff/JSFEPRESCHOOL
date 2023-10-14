@@ -50,7 +50,7 @@ canvas.addEventListener('touchstart', (event) => {
     y1 = event.touches[0].clientY;
     console.log(x1, y1);
 });
-canvas.addEventListener('touchmove', (event) => {
+document.addEventListener('touchmove', (event) => {
     event.preventDefault();
     let x2 = event.touches[0].clientX;
     let y2 = event.touches[0].clientY;
@@ -162,10 +162,6 @@ function drawGame() {
         };
     }
         }
-
-    ctx.fillStyle = 'black';
-    ctx.font = "50px Arial";
-    ctx.fillText(score, box * 2.5, box * 2.5);
 
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
