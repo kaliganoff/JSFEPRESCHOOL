@@ -1,6 +1,25 @@
+body {
+    background-color: aliceblue;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+h1:hover {
+    cursor: pointer;
+}
+
+
 .game {
-    width: 943px;
-    height: 1241px;
     display: block;
     margin: 0 auto;
+}
+
+.results {
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
 }

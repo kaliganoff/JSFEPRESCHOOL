@@ -4,10 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Snake</title>
 </head>
 <body>
-    <canvas class="game" width="943px" height="1241px"></canvas>
+    <audio src="assets/eat.mp3" class="eat"></audio>
+    <audio src="assets/turn.mp3" class="turn"></audio>
+    <h1>Snake</h1>
+    <canvas class="game"></canvas>
+    <div class="results">
+    <h2>Last 10 games:</h2>
+    <ol><li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li></ol>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
