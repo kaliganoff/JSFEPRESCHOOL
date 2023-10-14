@@ -45,7 +45,7 @@ snake[0] = {
 document.addEventListener('keydown', direction);
 let x1 = 0;
 let y1 = 0;
-canvas.addEventListener('touchstart', (event) => {
+document.addEventListener('touchstart', (event) => {
     x1 = event.touches[0].clientX;
     y1 = event.touches[0].clientY;
     console.log(x1, y1);
