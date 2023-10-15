@@ -1,25 +1,105 @@
+
 body {
+    margin-top: 2px;
     background-color: aliceblue;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 0px;
-    margin-top: 0px;
+.header {
+    display: block;
+    width: auto;
+    margin: 0 auto;
+    margin-bottom: 2px;
 }
-
-h1:hover {
-    cursor: pointer;
-}
-
 
 .game {
     display: block;
     margin: 0 auto;
 }
 
+.hint {
+    display: block;
+    position: absolute;
+    width: 30vw;
+    opacity: 0.85;
+    border: 1px solid blue;
+    transform: translate(-50%, 0%);
+}
+
+.restart {
+    display: block;
+    position: absolute;
+    width: 20vw;
+    opacity: 0.85;
+    transition: 1s;
+    border: 1px solid red;
+    transform: translate(-50%, 0%);
+}
+
+.restart:hover {
+    cursor: pointer;
+    width: 25vw;
+}
+
+.h2 {
+    display: block;
+    width: auto;
+}
+
 .results {
-    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90vw;
     margin: 0 auto;
+    margin-top: 10px;
     text-align: center;
 }
+
+ol {
+    padding-left: 0px;
+}
+
+.difficulty {
+    display: block;
+    width: auto;
+}
+
+.button {
+    margin-top: 10px;
+    background-color: aliceblue;
+    border: 1px solid black;
+    margin-bottom: 10px;
+}
+
+.button {
+    cursor: pointer;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5vh;
+}
+
+.github-img {
+    height: 4vh;
+    width: 4vh;
+    margin-left: 5px;
+    transition: 0.5s;
+}
+
+.github-img:hover {
+    filter: invert(40%);  
+  }
+
+.rss-img {
+    width: 7vh;
+    height: 7vh;
+    margin-right: 5px;
+    transition: 0.5s;
+}
+
+.rss-img:hover {
+    filter: invert(40%);  
+  }

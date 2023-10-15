@@ -7,23 +7,45 @@
     <title>Snake</title>
 </head>
 <body>
-    <audio src="assets/eat.mp3" class="eat"></audio>
-    <audio src="assets/turn.mp3" class="turn"></audio>
-    <h1>Snake</h1>
-    <canvas class="game"></canvas>
-    <div class="results">
-    <h2>Last 10 games:</h2>
-    <ol><li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li></ol>
-    </div>
+    <main>
+        <audio src="assets/eat.mp3" class="eat"></audio>
+        <audio src="assets/turn.mp3" class="turn"></audio>
+        <audio src="assets/up.mp3" class="up"></audio>
+        <audio src="assets/down.mp3" class="down"></audio>
+        <audio src="assets/gameover.mp3" class="gameover"></audio>
+        <img class="header" src="assets/header.png" alt="snake">
+        <canvas class="game"></canvas>
+        <img class="hint" src="assets/hint.png" alt="Press arrow keys or swipe to play">
+        <img class="restart" src="assets/restart.png" alt="Click here to play again">
+        <div class="results">
+            <img class="h2" src="assets/h2.png" alt="Last 10 games:">
+            <ol>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+            <img class="difficulty" src="assets/difficulty.png" alt="Difficulty:">
+            <div>
+                <button class="easy button">Easy</button>
+                <button class="normal button">Normal</button>
+                <button class="hard button">Hard</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer">
+            <a href="https://github.com/kaliganoff"><img class="github-img" src="assets/github.png" alt="My Github"></a>
+            <img class="year" src="assets/year.png" alt="2023">
+            <a href="https://rs.school/js-stage0/"><img class="rss-img" src="assets/rsschool.svg" alt="RS School"></a>
+        </div>
+    </footer>
     <script src="main.js"></script>
 </body>
 </html>

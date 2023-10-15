@@ -2,8 +2,25 @@ const canvas = document.querySelector('.game');
 const ctx = canvas.getContext('2d');
 const eat = document.querySelector('.eat');
 const turn = document.querySelector('.turn');
+const up = document.querySelector('.up');
+const down = document.querySelector('.down');
+const gameover = document.querySelector('.gameover');
+turn.volume = 0.3;
+up.volume = 0.3;
+down.volume = 0.3;
+gameover.volume = 0.5;
 const li = document.querySelectorAll('li');
-const header = document.querySelector('h1');
+const header = document.querySelector('.header');
+const hint = document.querySelector('.hint');
+const restart = document.querySelector('.restart');
+const h2 = document.querySelector('.h2');
+const difficultyHeader = document.querySelector('.difficulty');
+const easy = document.querySelector('.easy');
+const normal = document.querySelector('.normal');
+const hard = document.querySelector('.hard');
+const year = document.querySelector('.year');
+
+
 
 const background = new Image();
 background.src = 'assets/background.jpg';
@@ -19,6 +36,27 @@ canvas.width = canvas.height;
     canvas.height = canvas.width;
 }
 
+header.height = canvas.height / 12;
+h2.height = header.height * 0.8;
+difficultyHeader.height = header.height;
+
+hint.style.top = `${header.height * 2.5}px`;
+hint.style.left = '50%';
+
+restart.style.display = 'none';
+restart.style.top = `${header.height * 6}px`;
+restart.style.left = '50%';
+
+easy.style.fontSize = `${h2.height * 0.5}px`;
+normal.style.fontSize = `${h2.height * 0.5}px`;
+hard.style.fontSize = `${h2.height * 0.5}px`;
+
+easy.height = difficultyHeader.height * 0.5;
+normal.height = difficultyHeader.height * 0.5;
+hard.height = difficultyHeader.height * 0.5;
+
+year.height = easy.height;
+
 
 let box = canvas.height / 16;
 
@@ -27,7 +65,21 @@ let results = [];
 if(localStorage.results)
 results = JSON.parse(localStorage.results);
 for (let i = 0; i < results.length; i++) {
-    li[i].innerText = results[i];
+    li[i].innerText = `Score: ${results[i]}`;
+    li[i].style.fontSize = `${h2.height * 0.5}px`;
+}
+
+let difficulty = 100;
+if (localStorage.difficulty) {
+difficulty = +localStorage.difficulty;
+switch(localStorage.difficulty) {
+    case '150': easy.style.color = 'blue';
+    break;
+    case '100': normal.style.color = 'blue';
+    break;
+    case '50': hard.style.color = 'blue';
+    break;
+}
 }
 
 let food = {
@@ -52,6 +104,7 @@ document.addEventListener('touchstart', (event) => {
 });
 document.addEventListener('touchmove', (event) => {
     event.preventDefault();
+    hint.hidden = true;
     let x2 = event.touches[0].clientX;
     let y2 = event.touches[0].clientY;
 
@@ -79,16 +132,16 @@ document.addEventListener('touchmove', (event) => {
     } else {
         if (yDelta > 0 && dir != 'up') {
             if (dir != 'down') {
-                turn.load();
-                turn.play();
+                down.load();
+                down.play();
                 }
                 if (!snake[1]) {
                     dir = 'down';
                     } else if (snake[1].x !== snake[0].x) dir = 'down';
         } else if (yDelta < 0 && dir != 'down') {
             if (dir != 'up') {
-                turn.load();
-                turn.play();
+                up.load();
+                up.play();
                 }
                 if (!snake[1]) {
                     dir = 'up';
@@ -100,6 +153,7 @@ document.addEventListener('touchmove', (event) => {
 let dir;
 
 function direction(event) {
+    hint.style.display = 'none';
     if (event.keyCode === 37 && dir !== 'right') {
         event.preventDefault();
         if (dir != 'left') {
@@ -113,8 +167,8 @@ function direction(event) {
     if (event.keyCode === 38 && dir !== 'down'){
         event.preventDefault();
         if (dir != 'up') {
-            turn.load();
-            turn.play();
+            up.load();
+            up.play();
             }
             if (!snake[1]) {
                 dir = 'up';
@@ -133,8 +187,8 @@ function direction(event) {
     if (event.keyCode === 40 && dir !== 'up'){
         event.preventDefault();
         if (dir != 'down') {
-            turn.load();
-            turn.play();
+            down.load();
+            down.play();
             }
             if (!snake[1]) {
                 dir = 'down';
@@ -150,11 +204,17 @@ function eatTail(head, arr) {
 }
 
 function drawGame() {
-    ctx.drawImage(background, 0, 0, canvas.width * 2, canvas.height * 2);
+    ctx.drawImage(background, -canvas.width * 0.3, -canvas.height * 0.7, canvas.width * 2, canvas.height * 2);
     ctx.drawImage(foodImg, food.x, food.y, box, box);
 
     for (let i = 0; i < snake.length; i++) {
+        if (i === 0) {
+        ctx.globalAlpha = 0.8;
         ctx.drawImage(foodImg, snake[i].x, snake[i].y, box, box);
+        ctx.globalAlpha = 1.0;
+        } else {
+        ctx.drawImage(foodImg, snake[i].x, snake[i].y, box, box);
+        };
         if(food.x === snake[i].x && food.y === snake[i].y && i != 0){
         food = {
             x: Math.floor((Math.random() * 14 + 1)) * box,
@@ -196,15 +256,48 @@ function drawGame() {
     snake.unshift(newHead);
 }
 
-let game = setInterval(drawGame, 100);
+let game = setInterval(drawGame, difficulty);
 
 function gameOver() {
+    gameover.load();
+    gameover.play();
     results.push(score);
     if(results.length >= 11) results.shift();
+    for (let i = 0; i < results.length; i++) {
+        li[i].innerText = `Score: ${results[i]}`;
+    };
     localStorage.results = JSON.stringify(results);
     clearInterval(game);
-    header.innerText = `You've lost! Your result is ${score}. Refresh or click here to play again.`;
-    header.addEventListener('click', () => {
+    header.outerHTML = `<h1 style="text-align:center; font-size: ${canvas.height / 17}px; height: ${canvas.height / 32}px; margin-top: 2px;">You've lost! Your result is ${score}.<h1>`;
+    restart.style.display = 'block';
+    restart.addEventListener('click', () => {
         location.reload();
     })
 }
+
+easy.addEventListener('click', () => {
+    localStorage.difficulty = '150';
+    difficulty = +localStorage.difficulty;
+    easy.style.color = 'blue';
+    normal.style.color = 'black';
+    hard.style.color = 'black';
+    location.reload();
+})
+
+normal.addEventListener('click', () => {
+    localStorage.difficulty = '100';
+    difficulty = +localStorage.difficulty;
+    easy.style.color = 'black';
+    normal.style.color = 'blue';
+    hard.style.color = 'black';
+    location.reload();
+})
+
+hard.addEventListener('click', () => {
+    localStorage.difficulty = '50';
+    difficulty = +localStorage.difficulty;
+    easy.style.color = 'black';
+    normal.style.color = 'black';
+    hard.style.color = 'blue;'
+    location.reload();
+});
