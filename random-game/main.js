@@ -32,7 +32,7 @@ if(window.innerWidth >= window.innerHeight) {
 canvas.height = window.innerHeight * 0.9;
 canvas.width = canvas.height;
 } else {
-    canvas.width = window.innerWidth * 0.7;
+    canvas.width = window.innerWidth * 0.5;
     canvas.height = canvas.width;
 }
 
@@ -103,6 +103,7 @@ document.addEventListener('touchstart', (event) => {
     console.log(x1, y1);
 });
 document.addEventListener('touchmove', (event) => {
+    hint.style.display = 'none';
     event.preventDefault();
     hint.hidden = true;
     let x2 = event.touches[0].clientX;
