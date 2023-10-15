@@ -149,7 +149,7 @@ document.addEventListener('touchmove', (event) => {
                     } else if (snake[1].x !== snake[0].x) dir = 'up';  
          }
     }
-})
+}, {passive: false});
 
 let dir;
 
